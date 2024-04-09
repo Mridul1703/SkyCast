@@ -30,4 +30,4 @@ jobs:
       - name: Delete Old Container
         run: docker rm -f reactContainer
       - name: Run docker container
-        run: docker run -d -p 3000:80 --name reactContainer mriidul17/autoops
+        run: sudo docker run -d -p 3000:80 --name reactContainer mriidul17/autoops
