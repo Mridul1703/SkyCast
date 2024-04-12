@@ -18,13 +18,13 @@ jobs:
       - name: Publish image to docker hub
         run: docker push mriidul17/autoops:latest   
 
-  deploy: 
-    needs: build
-    runs-on: aws-ec2    
-    steps:
-      - name: Pull image from docker hub
-        run: docker pull mriidul17/autoops:latest 
-      - name: Delete Old Container
-        run: docker rm -f reactContainer
-      - name: Run docker container
-        run: docker run -d -p 3000:80 --name reactContainer mriidul17/autoops 
+deploy: 
+  needs: build
+  runs-on: aws-ec2    
+  steps:
+    - name: Pull image from docker hub
+      run: docker pull mriidul17/autoops:latest 
+    - name: Delete Old Container
+      run: docker rm -f reactContainer
+    - name: Run docker container
+      run: docker run -d -p 3000:80 --name reactContainer mriidul17/autoops 
